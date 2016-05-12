@@ -1,0 +1,27 @@
+{
+  "name": "ble-packet",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hedywings/ble-packet.git"
+  },
+  "author": "Hedy Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hedywings/ble-packet/issues"
+  },
+  "homepage": "https://github.com/hedywings/ble-packet#readme",
+  "dependencies": {
+    "concentrate": "^0.2.3",
+    "dissolve-chunks": "^1.0.2"
+  },
+  "devDependencies": {
+    "chance": "^1.0.3",
+    "should": "^8.3.1"
+  }
+}

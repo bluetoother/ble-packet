@@ -1,6 +1,6 @@
 {
-  "name": "ble-packet",
-  "version": "0.0.1",
+  "name": "ble-char-packet",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hedywings/ble-packet.git"
+    "url": "git+https://github.com/hedywings/ble-char-packet.git"
   },
   "author": "Hedy Wang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hedywings/ble-packet/issues"
+    "url": "https://github.com/hedywings/ble-char-packet/issues"
   },
-  "homepage": "https://github.com/hedywings/ble-packet#readme",
+  "homepage": "https://github.com/hedywings/ble-char-packet#readme",
   "dependencies": {
     "concentrate": "^0.2.3",
-    "dissolve-chunks": "^1.0.2"
+    "dissolve-chunks": "^1.0.2",
+    "lodash": "^4.12.0"
   },
   "devDependencies": {
     "chance": "^1.0.3",

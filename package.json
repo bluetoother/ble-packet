@@ -1,6 +1,6 @@
 {
   "name": "ble-char-packet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "concentrate": "^0.2.3",
     "dissolve-chunks": "^1.0.2",
+    "ipso-ble-char": "0.0.2",
     "lodash": "^4.12.0"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@ ble-packet
 ## Table of Contents  
 
 1. [Overview](#Overview)  
-    1.1 [GATT Specifications](#GATT)
+    1.1 [GATT Specifications](#GATT)  
     1.2 [Installation](#Installation)  
     1.3 [Usage](#Usage)  
 2. [APIs](#APIs): [frame()](#API_frame), and [parse()](#API_parse)
@@ -94,7 +94,7 @@ blePacket.parse('0x2a04', charPacket, function (err, result) {
 
 Generate the raw packet of a GATT-defined attribute value.
 
-**Arguments: **
+**Arguments:**
 
 1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT).
 2. `value` (_Object_): A GATT-defined attribute value.
@@ -126,7 +126,7 @@ blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 99 07 07 13 09 00 00 02>
 
 Parse a raw buffer into a GATT-defined attribute value.
 
-**Arguments: **
+**Arguments**
 
 1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT).
 2. `buf` (_Buffer_): Raw buffer to be parsed.

@@ -5,7 +5,7 @@ ble-packet
 
 [![NPM](https://nodei.co/npm/ble-packet.png?downloads=true)](https://nodei.co/npm/ble-packet/)  
 
-[![Build Status](https://img.shields.io/travis/bluetoother/ble-packet/master.svg?maxAge=2592000)](https://travis-ci.org/bluetoother/ble-packet)
+[![Build Status](https://travis-ci.org/bluetoother/ble-packet.svg?branch=master)](https://travis-ci.org/bluetoother/ble-packet)
 [![npm](https://img.shields.io/npm/v/ble-packet.svg?maxAge=2592000)](https://www.npmjs.com/package/ble-packet)
 [![npm](https://img.shields.io/npm/l/ble-packet.svg?maxAge=2592000)](https://www.npmjs.com/package/ble-packet)
 

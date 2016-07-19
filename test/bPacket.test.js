@@ -1,6 +1,5 @@
 'use strict';
-var _ = require('lodash'),
-	should = require('should'),
+var _ = require('busyman'),
 	Chance = require('chance'),
 	chance = new Chance();
 
@@ -14,7 +13,7 @@ var furtherProcessArr = [
     '0xcc0a', '0xcc0b', '0xcc0c', '0xcc0d', '0xcc0e', '0xcc0f', '0xcc10', '0xcc11', '0xcc12', 
     '0xcc13', '0xcc14', '0xcc15', '0xcc16', '0xcc17', '0xcc18', '0xcc19', '0xcc1a', '0xcc1b', 
     '0xcc1c', '0xcc1d', '0xcc1e', '0xcc1f', '0xcc20', '0xcc21', '0xcc22', '0xcc23', '0xcc24', 
-    '0xcc25', '0xcc26', '0xcc27',  '0xcc28', '0xcc29', '0xcc2a', '0xcc2b', '0xcc2c', '0xcc2d', 
+    '0xcc25', '0xcc26', '0xcc27', '0xcc28', '0xcc29', '0xcc2a', '0xcc2b', '0xcc2c', '0xcc2d', 
     '0xcc2e', '0xcc2f', '0xcc30', '0xcc31', '0xcc32'];
 
 var uuidObj = {
@@ -245,24 +244,28 @@ var uuidObj = {
             heightImperial: 170
         },
         '0xcc00': {
+            id: 0,
             flags: 69,
             dInState: true,
-            dInCounter: 3,
+            counter: 3,
             debouncePeriod: 300,
             sensorType: 'PIR'
         },
         '0xcc04': {
+            id: 0,
             flags: 129,
             sensorValue: 300,
             units: 'mV',
             sensorType: 'voltage'
         },
         '0xcc07': {
+            id: 0,
             flags: 1,
             sensorValue: 26,            
             units: 'C'
         },
         '0xcc0d': {
+            id: 0,
             flags: 3,
             onOff: false,
             dimmer: 100,

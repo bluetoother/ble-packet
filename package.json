@@ -1,29 +1,29 @@
 {
-  "name": "ble-char-packet",
+  "name": "ble-packet",
   "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test-all"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hedywings/ble-char-packet.git"
+    "url": "git+https://github.com/bluetoother/ble-packet.git"
   },
   "author": "Hedy Wang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hedywings/ble-char-packet/issues"
+    "url": "https://github.com/bluetoother/ble-packet/issues"
   },
-  "homepage": "https://github.com/hedywings/ble-char-packet#readme",
+  "homepage": "https://github.com/bluetoother/ble-packet#readme",
   "dependencies": {
+    "bipso": "0.0.6",
+    "busyman": "^0.1.1",
     "concentrate": "^0.2.3",
-    "dissolve-chunks": "^1.0.2",
-    "ipso-ble-char": "0.0.2",
-    "lodash": "^4.12.0"
+    "dissolve-chunks": "^1.0.2"
   },
   "devDependencies": {
     "chance": "^1.0.3",
-    "should": "^8.3.1"
+    "mocha": "^2.5.3"
   }
 }

@@ -1,7 +1,5 @@
-ble-packet
-========================
-
-**ble-packet** is a framer and parser for BLE attributes defined by GATT Specifications
+# ble-packet
+**ble-packet** is a framer and parser for BLE attributes on node.js
 
 [![NPM](https://nodei.co/npm/ble-packet.png?downloads=true)](https://nodei.co/npm/ble-packet/)  
 
@@ -20,7 +18,8 @@ ble-packet
 3. [Appendix](#Appendix)  
     3.1 [GATT Characteristics](#Characteristics)  
     3.2 [GATT Declarations](#Declarations)  
-    3.3 [GATT Descriptors](#Descriptors)
+    3.3 [GATT Descriptors](#Descriptors)  
+    3.4 [BIPSO Characteristics](#BCharacteristics)  
 4. [License](#License)  
 
 <br />
@@ -29,7 +28,7 @@ ble-packet
 <a name="Overview"></a>
 ## 1. Overview  
 
-The **ble-packet** is the packet builder and parser used for process BLE attributes if they are [_GATT Specifications-defined_](https://www.bluetooth.com/specifications/GATT) ones.
+The **ble-packet** is the packet builder and parser used for process BLE attributes if they are [_GATT Specifications-defined_](https://www.bluetooth.com/specifications/GATT) ones or [_BIPSO Specifications-defined_](https://github.com/bluetoother/bipso/blob/master/doc/spec.md) ones.
 
 <br />
 
@@ -57,16 +56,16 @@ var blePacket = require('ble-packet');
 
 Using `.frame()` and `.parse()` methods to build and parse BLE attributes is quite simple. Here are some quick examples:  
 
-* Build a raw buffer of Characteristic Value
+* Build a Characteristic raw buffer
 
 ```js
 var connParamsVal = {
         minConnInterval: 100,
-        maxConnInterval: 500.
+        maxConnInterval: 500,
         latency: 0,
         timeout: 2000
     },
-    charBuf = blePacket.frame('0x2a04', {});
+    charBuf = blePacket.frame('0x2a04', connParamsVal);
 ```
 
 * Parse a Characteristic raw packet into an object  
@@ -92,12 +91,12 @@ blePacket.parse('0x2a04', charPacket, function (err, result) {
 <a name="API_frame"></a>
 ### .frame(uuid, value)
 
-Generate the raw packet of a GATT-defined attribute value.
+Generate the raw packet of a GATT-defined or BIPSO-defined attribute value.
 
 **Arguments:**
 
-1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT).
-2. `value` (_Object_): A GATT-defined attribute value.
+1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT) or [BIPSO Specification](https://github.com/bluetoother/bipso/blob/master/doc/spec.md).
+2. `value` (_Object_): A GATT-defined or BIPSO-defined attribute value.
 
 **Returns**
 
@@ -117,20 +116,24 @@ var dayDateUuid = '0x2a0a',
         dayOfWeek: 2
     }
 
-blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 99 07 07 13 09 00 00 02>
+blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 153 07 07 13 09 00 00 02>
 ```
 
 *************************************************
 <a name="API_parse"></a>
 ### .parse(uuid, buf, callback)
 
-Parse a raw buffer into a GATT-defined attribute value.
+Parse a raw buffer into a GATT-defined or BIPSO-defined attribute value.
 
+<<<<<<< 4ba458a4b8eb07739460de4a9aecfe1b9b4e74f3
 **Arguments**
+=======
+**Arguments:**
+>>>>>>> refactoring
 
-1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT).
+1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT) or [BIPSO Specification](https://github.com/bluetoother/bipso/blob/master/doc/spec.md).
 2. `buf` (_Buffer_): Raw buffer to be parsed.
-3. `callback` (_Function_): `function(err, result) {...}`. Get called when the buffer is parsed.
+3. `callback` (_Function_): `function(err, result) {...}`. Get called when the raw buffer is parsed.
 
 **Returns**
 
@@ -140,7 +143,7 @@ Parse a raw buffer into a GATT-defined attribute value.
 
 ```js
 var dayDateUuid = '0x2a0a',
-    rawBuf = new Buffer([ 99, 07, 07, 13, 09, 00, 00, 02 ]);
+    rawBuf = new Buffer([ 153, 7, 07, 19, 09, 00, 00, 02 ]);
 
 blePacket.parse(dayDateUuid, rawBuf, function(err, result) {
     if (err)
@@ -425,6 +428,13 @@ blePacket.parse(dayDateUuid, rawBuf, function(err, result) {
     }
     ```
 
+<a name="BCharacteristics"></a>  
+### 3.4 BIPSO Characteristics  
+
+* In BIPSO, an IPSO Smart Object will be mapped to a BLE Characteristic with a well-defined Characteristic Value.
+* Here is the [BIPSO Characteristics](https://github.com/bluetoother/bipso/blob/master/doc/spec.md#bipso-characteristics) that show you all BIPSO-defined Characteristic definitions.
+
+<br />
 
 <a name="License"></a>
 ## 4. License  

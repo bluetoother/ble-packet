@@ -116,7 +116,7 @@ var dayDateUuid = '0x2a0a',
         dayOfWeek: 2
     }
 
-blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 153 07 07 13 09 00 00 02>
+blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 99 07 07 13 09 00 00 02>
 ```
 
 *************************************************
@@ -125,11 +125,7 @@ blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 153 07 07 13 09 00 00 02>
 
 Parse a raw buffer into a GATT-defined or BIPSO-defined attribute value.
 
-<<<<<<< 4ba458a4b8eb07739460de4a9aecfe1b9b4e74f3
-**Arguments**
-=======
 **Arguments:**
->>>>>>> refactoring
 
 1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT) or [BIPSO Specification](https://github.com/bluetoother/bipso/blob/master/doc/spec.md).
 2. `buf` (_Buffer_): Raw buffer to be parsed.
@@ -432,7 +428,7 @@ blePacket.parse(dayDateUuid, rawBuf, function(err, result) {
 ### 3.4 BIPSO Characteristics  
 
 * In BIPSO, an IPSO Smart Object will be mapped to a BLE Characteristic with a well-defined Characteristic Value.
-* Here is the [BIPSO Characteristics](https://github.com/bluetoother/bipso/blob/master/doc/spec.md#bipso-characteristics) that show you all BIPSO-defined Characteristic definitions.
+* Here is the [document](https://github.com/bluetoother/bipso/blob/master/doc/spec.md#bipso-characteristics) that show you all BIPSO-defined Characteristics.
 
 <br />
 

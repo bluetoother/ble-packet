@@ -100,11 +100,12 @@ Generate the raw packet of a GATT-defined or BIPSO-defined attribute value.
 
 **Returns**
 
-* (_Buffer_): Raw buffer of given BLE attribute.  
+* (_Buffer_ | _Object_): Raw buffer of BLE attribute value, the given `value` will be returned if `uuid` is unrecognized.  
 
 **Example:**
 
 ```js
+// GATT-defined attribute
 var dayDateUuid = '0x2a0a',
     dayDateVal = {
         year: 1945,
@@ -114,9 +115,30 @@ var dayDateUuid = '0x2a0a',
         minutes: 0,
         seconds: 0,
         dayOfWeek: 2
-    }
+    };
 
 blePacket.frame(dayDateUuid, dayDateVal);   // <Buffer 99 07 07 13 09 00 00 02>
+
+// BIPSO-defined attribute
+var genericUuid = '0xcc04',
+    genericSensorValue = {            
+        flags: 129,
+        id: 0,
+        sensorValue: 0,
+        units: ppm,
+        sensorType: MQ7
+    };
+
+blePacket.frame(genericUuid, genericSensorValue);    // <Buffer 81 00 00 00 00 00 03 70 70 6d 03 4d 51 37>
+
+// Unrecognized attribute
+var privateUuid = '0xff00',
+    privateValue = {
+        x: 0,
+        y: 1
+    };
+
+blePacket.frame(privateUuid, privateValue);    // { x: 0, y: 1 }
 ```
 
 *************************************************
@@ -129,7 +151,10 @@ Parse a raw buffer into a GATT-defined or BIPSO-defined attribute value.
 
 1. `uuid` (_String_ | _Number_): UUID defined in [GATT Specifications](https://www.bluetooth.com/specifications/GATT) or [BIPSO Specification](https://github.com/bluetoother/bipso/blob/master/doc/spec.md).
 2. `buf` (_Buffer_): Raw buffer to be parsed.
-3. `callback` (_Function_): `function(err, result) {...}`. Get called when the raw buffer is parsed.
+3. `callback` (_Function_): `function(err, result) {...}`. Get called along with the parsed value.. 
+
+    * `'err'` (Error) - Error Object
+    * `'result'` (_Object_ | _Buffer_): `result` is a data object, or the given `buf` if uuid is unrecognized
 
 **Returns**
 
@@ -138,26 +163,42 @@ Parse a raw buffer into a GATT-defined or BIPSO-defined attribute value.
 **Example:**
 
 ```js
+// GATT-defined attribute
 var dayDateUuid = '0x2a0a',
-    rawBuf = new Buffer([ 153, 7, 07, 19, 09, 00, 00, 02 ]);
+    dayDateBuf = new Buffer([ 153, 7, 07, 19, 09, 00, 00, 02 ]);
 
-blePacket.parse(dayDateUuid, rawBuf, function(err, result) {
+blePacket.parse(dayDateUuid, dayDateBuf, function(err, result) {
     if (err)
         console.log(err);
     else
         console.log(result);
 
-    // Result object
-    // {
-    //     year: 1945,
-    //     month: 7,
-    //     day: 19,
-    //     hours: 9,
-    //     minutes: 0,
-    //     seconds: 0,
-    //     dayOfWeek: 2
-    // }
+    /*    
+    {
+        year: 1945,
+        month: 7,
+        day: 19,
+        hours: 9,
+        minutes: 0,
+        seconds: 0,
+        dayOfWeek: 2
+    }
+    */
 });
+
+// Unrecognized attribute
+var privateUuid = '0xff00',
+    privateBuf = new Buffer([0, 1])
+
+blePacket.parse(privateUuid, privateBuf, function(err, result) {
+    if (err)
+        console.log(err);
+    else
+        console.log(result);
+
+    // <Buffer 0 1>
+});
+
 ```
 
 <br />

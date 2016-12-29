@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/bluetoother/ble-packet#readme",
   "dependencies": {
-    "bipso": "^1.2.0",
-    "busyman": "^0.2.0",
+    "bipso": "^1.4.0",
+    "busyman": "^0.3.0",
     "concentrate": "^0.2.3",
-    "dissolve-chunks": "^1.2.0"
+    "dissolve-chunks": "^1.3.0"
   },
   "devDependencies": {
     "chance": "^1.0.3",

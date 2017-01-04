@@ -4,8 +4,8 @@
 [![NPM](https://nodei.co/npm/ble-packet.png?downloads=true)](https://nodei.co/npm/ble-packet/)  
 
 [![Build Status](https://travis-ci.org/bluetoother/ble-packet.svg?branch=master)](https://travis-ci.org/bluetoother/ble-packet)
-[![npm](https://img.shields.io/npm/v/ble-packet.svg?maxAge=2592000)](https://www.npmjs.com/package/ble-packet)
-[![npm](https://img.shields.io/npm/l/ble-packet.svg?maxAge=2592000)](https://www.npmjs.com/package/ble-packet)
+[![npm](https://img.shields.io/npm/v/ble-packet.svg)](https://www.npmjs.com/package/ble-packet)
+[![npm](https://img.shields.io/npm/l/ble-packet.svg)](https://www.npmjs.com/package/ble-packet)
 
 <br />
 
@@ -27,13 +27,13 @@ In BLE, an attributes is the smallest data entity defined by GATT (Generic Attri
 
 <br />
 
-### Installation  
+## Installation  
 
 > $ npm install ble-packet --save
 
 <br />
 
-### Usage  
+## Usage  
 
 See [Usage](https://github.com/bluetoother/ble-packet/wiki#Usage) on the Wiki.  
 

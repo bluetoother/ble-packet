@@ -17,7 +17,7 @@ Please visit the [Wiki](https://github.com/bluetoother/ble-packet/wiki).
 
 ## Overview  
 
-The **ble-packet** is the packet builder and parser used for process BLE attributes if they are [_GATT Specifications-defined_](https://www.bluetooth.com/specifications/GATT) ones or [_BIPSO Specifications-defined_](https://github.com/bluetoother/bipso/blob/master/doc/spec.md) ones.
+The **ble-packet** is the packet builder and parser used for process BLE attributes if they are [_GATT Specifications-defined_](https://www.bluetooth.com/specifications/GATT) ones or [_BIPSO Specifications-defined_](https://github.com/bluetoother/bipso/wiki/BIPSO-Specification) ones.
 
 <br />
 
